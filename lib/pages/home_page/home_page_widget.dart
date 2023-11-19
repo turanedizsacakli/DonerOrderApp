@@ -106,7 +106,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('eatingDrinking');
+                          context.pushNamed('ChooseEatingDrinking');
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -148,7 +148,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('eatingDrinking');
+                          context.pushNamed('ChooseEatingDrinking');
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -190,7 +190,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('eatingDrinking');
+                          context.pushNamed('ChooseEatingDrinking');
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -232,7 +232,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('eatingDrinking');
+                          context.pushNamed('ChooseEatingDrinking');
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,

@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'eating_drinking_widget.dart' show EatingDrinkingWidget;
+import 'choose_eating_drinking_widget.dart' show ChooseEatingDrinkingWidget;
 import 'package:flutter/material.dart';
 
-class EatingDrinkingModel extends FlutterFlowModel<EatingDrinkingWidget> {
+class ChooseEatingDrinkingModel
+    extends FlutterFlowModel<ChooseEatingDrinkingWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

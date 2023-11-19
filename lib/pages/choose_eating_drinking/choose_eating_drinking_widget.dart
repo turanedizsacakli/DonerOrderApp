@@ -2,25 +2,27 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'eating_drinking_model.dart';
-export 'eating_drinking_model.dart';
+import 'choose_eating_drinking_model.dart';
+export 'choose_eating_drinking_model.dart';
 
-class EatingDrinkingWidget extends StatefulWidget {
-  const EatingDrinkingWidget({super.key});
+class ChooseEatingDrinkingWidget extends StatefulWidget {
+  const ChooseEatingDrinkingWidget({super.key});
 
   @override
-  _EatingDrinkingWidgetState createState() => _EatingDrinkingWidgetState();
+  _ChooseEatingDrinkingWidgetState createState() =>
+      _ChooseEatingDrinkingWidgetState();
 }
 
-class _EatingDrinkingWidgetState extends State<EatingDrinkingWidget> {
-  late EatingDrinkingModel _model;
+class _ChooseEatingDrinkingWidgetState
+    extends State<ChooseEatingDrinkingWidget> {
+  late ChooseEatingDrinkingModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => EatingDrinkingModel());
+    _model = createModel(context, () => ChooseEatingDrinkingModel());
   }
 
   @override
