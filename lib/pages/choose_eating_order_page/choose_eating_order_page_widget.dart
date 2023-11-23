@@ -3,9 +3,11 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'choose_eating_order_page_model.dart';
 export 'choose_eating_order_page_model.dart';
 
@@ -46,6 +48,8 @@ class _ChooseEatingOrderPageWidgetState
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
@@ -181,27 +185,181 @@ class _ChooseEatingOrderPageWidgetState
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
-                                FlutterFlowCheckboxGroup(
-                                  options: const ['Döner Dürüm', 'Döner', 'Döner'],
-                                  onChanged: (val) => setState(
-                                      () => _model.checkboxGroupValues = val),
-                                  controller:
-                                      _model.checkboxGroupValueController ??=
-                                          FormFieldController<List<String>>(
-                                    [],
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: FlutterFlowCheckboxGroup(
+                                        options: const [
+                                          'TAVUK DÖNER',
+                                          'ET DÖNER',
+                                          'İSKENDER',
+                                          'SALATA',
+                                          'EZME'
+                                        ],
+                                        onChanged: (val) => setState(() =>
+                                            _model.checkboxGroupValues = val),
+                                        controller: _model
+                                                .checkboxGroupValueController ??=
+                                            FormFieldController<List<String>>(
+                                          [],
+                                        ),
+                                        activeColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        checkColor:
+                                            FlutterFlowTheme.of(context).info,
+                                        checkboxBorderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        checkboxBorderRadius:
+                                            BorderRadius.circular(4.0),
+                                        initialized:
+                                            _model.checkboxGroupValues != null,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 15.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 5.0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {},
+                                              text: '1 Porsiyon   ',
+                                              options: FFButtonOptions(
+                                                height: 40.0,
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                iconPadding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: const BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(50.0),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 5.0),
+                                            child: FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: '1.5 Porsiyon',
+                                              options: FFButtonOptions(
+                                                height: 40.0,
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                iconPadding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: const BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(50.0),
+                                              ),
+                                            ),
+                                          ),
+                                          FFButtonWidget(
+                                            onPressed: () {
+                                              print('Button pressed ...');
+                                            },
+                                            text: '2 Porsiyon   ',
+                                            options: FFButtonOptions(
+                                              height: 40.0,
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
+                                              iconPadding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        color: Colors.white,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: const BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(50.0),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                FFButtonWidget(
+                                  onPressed: () {
+                                    print('Button pressed ...');
+                                  },
+                                  text: '~ EKLE ~',
+                                  options: FFButtonOptions(
+                                    height: 40.0,
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 0.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle:
+                                        FlutterFlowTheme.of(context).titleSmall,
+                                    elevation: 3.0,
+                                    borderSide: const BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(15.0),
                                   ),
-                                  activeColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  checkColor: FlutterFlowTheme.of(context).info,
-                                  checkboxBorderColor:
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                  textStyle:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                  checkboxBorderRadius:
-                                      BorderRadius.circular(4.0),
-                                  initialized:
-                                      _model.checkboxGroupValues != null,
                                 ),
                               ],
                             ),
@@ -210,6 +368,23 @@ class _ChooseEatingOrderPageWidgetState
                       ),
                     ],
                   ),
+                ),
+                ListTile(
+                  title: Text(
+                    'YEMEK İSMİ',
+                    style: FlutterFlowTheme.of(context).titleLarge,
+                  ),
+                  subtitle: Text(
+                    'KAÇ PORSİYON OLDUĞU',
+                    style: FlutterFlowTheme.of(context).labelMedium,
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 20.0,
+                  ),
+                  tileColor: FlutterFlowTheme.of(context).secondaryBackground,
+                  dense: false,
                 ),
               ],
             ),
