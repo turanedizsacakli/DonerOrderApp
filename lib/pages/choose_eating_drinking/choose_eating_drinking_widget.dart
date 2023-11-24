@@ -118,7 +118,7 @@ class _ChooseEatingDrinkingWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('EatingPage');
+                                context.pushNamed('ChooseEatingOrderPage');
                               },
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
