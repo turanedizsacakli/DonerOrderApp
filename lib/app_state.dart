@@ -23,6 +23,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _tableNumber = prefs.getInt('ff_tableNumber') ?? _tableNumber;
     });
+    _safeInit(() {
+      _selectedMeal = prefs.getString('ff_selectedMeal') ?? _selectedMeal;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -44,6 +47,13 @@ class FFAppState extends ChangeNotifier {
   set tableNumber(int value) {
     _tableNumber = value;
     prefs.setInt('ff_tableNumber', value);
+  }
+
+  String _selectedMeal = '';
+  String get selectedMeal => _selectedMeal;
+  set selectedMeal(String value) {
+    _selectedMeal = value;
+    prefs.setString('ff_selectedMeal', value);
   }
 }
 

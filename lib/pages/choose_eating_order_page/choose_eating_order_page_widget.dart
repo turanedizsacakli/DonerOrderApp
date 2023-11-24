@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -76,7 +77,7 @@ class _ChooseEatingOrderPageWidgetState
             },
           ),
           title: Text(
-            'İçecekler Sayfası',
+            'Yemek Siparişi Alma Sayfası',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
@@ -148,7 +149,12 @@ class _ChooseEatingOrderPageWidgetState
                                 FlutterFlowDropDown<String>(
                                   controller: _model.dropDownValueController ??=
                                       FormFieldController<String>(null),
-                                  options: const ['Masa Seç\n'],
+                                  options: const [
+                                    'Masa 1',
+                                    'Masa 2',
+                                    'Masa 3',
+                                    'Masa 4'
+                                  ],
                                   onChanged: (val) => setState(
                                       () => _model.dropDownValue = val),
                                   width: 300.0,
@@ -180,16 +186,27 @@ class _ChooseEatingOrderPageWidgetState
                             Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Text(
-                                  'Yemek Seçimi',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 10.0),
+                                  child: Text(
+                                    'Yemek Seçimi',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Expanded(
                                       child: FlutterFlowCheckboxGroup(
+                                        key:
+                                            ValueKey(FFAppState().selectedMeal),
                                         options: const [
                                           'TAVUK DÖNER',
                                           'ET DÖNER',
@@ -197,8 +214,14 @@ class _ChooseEatingOrderPageWidgetState
                                           'SALATA',
                                           'EZME'
                                         ],
-                                        onChanged: (val) => setState(() =>
-                                            _model.checkboxGroupValues = val),
+                                        onChanged: (val) async {
+                                          setState(() =>
+                                              _model.checkboxGroupValues = val);
+                                          setState(() {
+                                            FFAppState().selectedMeal =
+                                                FFAppState().selectedMeal;
+                                          });
+                                        },
                                         controller: _model
                                                 .checkboxGroupValueController ??=
                                             FormFieldController<List<String>>(
@@ -220,118 +243,55 @@ class _ChooseEatingOrderPageWidgetState
                                             _model.checkboxGroupValues != null,
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 15.0, 0.0),
+                                    Container(
+                                      width: 150.0,
+                                      height: 150.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 5.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {},
-                                              text: '1 Porsiyon   ',
-                                              options: FFButtonOptions(
-                                                height: 40.0,
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: Colors.white,
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: const BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(50.0),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 5.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: '1.5 Porsiyon',
-                                              options: FFButtonOptions(
-                                                height: 40.0,
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: Colors.white,
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: const BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(50.0),
-                                              ),
-                                            ),
-                                          ),
-                                          FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
-                                            },
-                                            text: '2 Porsiyon   ',
-                                            options: FFButtonOptions(
-                                              height: 40.0,
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: FlutterFlowRadioButton(
+                                              options: [
+                                                '1 Porsiyon',
+                                                '1,5 Porsiyon',
+                                                '2 Porsiyon'
+                                              ].toList(),
+                                              onChanged: (val) =>
+                                                  setState(() {}),
+                                              controller: _model
+                                                      .radioButtonValueController ??=
+                                                  FormFieldController<String>(
+                                                      null),
+                                              optionHeight: 32.0,
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color: Colors.white,
-                                                      ),
-                                              elevation: 3.0,
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(50.0),
+                                                      .labelMedium,
+                                              selectedTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                              buttonPosition:
+                                                  RadioButtonPosition.left,
+                                              direction: Axis.vertical,
+                                              radioButtonColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              inactiveRadioButtonColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              toggleable: false,
+                                              horizontalAlignment:
+                                                  WrapAlignment.start,
+                                              verticalAlignment:
+                                                  WrapCrossAlignment.start,
                                             ),
                                           ),
                                         ],
@@ -339,26 +299,41 @@ class _ChooseEatingOrderPageWidgetState
                                     ),
                                   ],
                                 ),
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: '~ EKLE ~',
-                                  options: FFButtonOptions(
-                                    height: 40.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle:
-                                        FlutterFlowTheme.of(context).titleSmall,
-                                    elevation: 3.0,
-                                    borderSide: const BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 15.0, 0.0, 15.0),
+                                  child: Text(
+                                    FFAppState().selectedMeal,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 20.0, 0.0, 0.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () {
+                                      print('Button pressed ...');
+                                    },
+                                    text: '~ EKLE ~',
+                                    options: FFButtonOptions(
+                                      height: 40.0,
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 0.0),
+                                      iconPadding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall,
+                                      elevation: 3.0,
+                                      borderSide: const BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(15.0),
                                     ),
-                                    borderRadius: BorderRadius.circular(15.0),
                                   ),
                                 ),
                               ],
