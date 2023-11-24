@@ -312,7 +312,9 @@ class _ChooseEatingOrderPageWidgetState
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 0.0),
                                   child: FFButtonWidget(
-                                    onPressed: () async {},
+                                    onPressed: () {
+                                      print('Button pressed ...');
+                                    },
                                     text: '~ EKLE ~',
                                     options: FFButtonOptions(
                                       height: 40.0,
