@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'drinking_page_widget.dart' show DrinkingPageWidget;
+import 'bill_page_widget.dart' show BillPageWidget;
 import 'package:flutter/material.dart';
 
-class DrinkingPageModel extends FlutterFlowModel<DrinkingPageWidget> {
+class BillPageModel extends FlutterFlowModel<BillPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
