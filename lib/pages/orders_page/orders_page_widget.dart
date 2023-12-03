@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'eating_page_model.dart';
-export 'eating_page_model.dart';
+import 'orders_page_model.dart';
+export 'orders_page_model.dart';
 
-class EatingPageWidget extends StatefulWidget {
-  const EatingPageWidget({super.key});
+class OrdersPageWidget extends StatefulWidget {
+  const OrdersPageWidget({super.key});
 
   @override
-  _EatingPageWidgetState createState() => _EatingPageWidgetState();
+  _OrdersPageWidgetState createState() => _OrdersPageWidgetState();
 }
 
-class _EatingPageWidgetState extends State<EatingPageWidget> {
-  late EatingPageModel _model;
+class _OrdersPageWidgetState extends State<OrdersPageWidget> {
+  late OrdersPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => EatingPageModel());
+    _model = createModel(context, () => OrdersPageModel());
   }
 
   @override

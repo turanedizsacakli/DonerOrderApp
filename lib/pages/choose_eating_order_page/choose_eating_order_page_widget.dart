@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
@@ -132,7 +131,7 @@ class _ChooseEatingOrderPageWidgetState
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                                 Text(
-                                  'SiparişAlan',
+                                  FFAppState().waiterName,
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
@@ -142,7 +141,7 @@ class _ChooseEatingOrderPageWidgetState
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Masa Numarası',
+                                  'Masa Numarası : ',
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
@@ -157,7 +156,7 @@ class _ChooseEatingOrderPageWidgetState
                                   ],
                                   onChanged: (val) => setState(
                                       () => _model.dropDownValue = val),
-                                  width: 300.0,
+                                  width: 270.0,
                                   height: 50.0,
                                   textStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
@@ -202,53 +201,98 @@ class _ChooseEatingOrderPageWidgetState
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Expanded(
-                                      child: FlutterFlowCheckboxGroup(
-                                        key:
-                                            ValueKey(FFAppState().selectedMeal),
-                                        options: const [
-                                          'TAVUK DÖNER',
-                                          'ET DÖNER',
-                                          'İSKENDER',
-                                          'SALATA',
-                                          'EZME'
-                                        ],
-                                        onChanged: (val) async {
-                                          setState(() =>
-                                              _model.checkboxGroupValues = val);
-                                          setState(() {
-                                            FFAppState().selectedMeal =
-                                                FFAppState().selectedMeal;
-                                          });
-                                        },
-                                        controller: _model
-                                                .checkboxGroupValueController ??=
-                                            FormFieldController<List<String>>(
-                                          [],
-                                        ),
-                                        activeColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                        checkColor:
-                                            FlutterFlowTheme.of(context).info,
-                                        checkboxBorderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        checkboxBorderRadius:
-                                            BorderRadius.circular(4.0),
-                                        initialized:
-                                            _model.checkboxGroupValues != null,
-                                      ),
-                                    ),
                                     Container(
-                                      width: 150.0,
+                                      width: 159.0,
                                       height: 150.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
+                                        boxShadow: const [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x33000000),
+                                            offset: Offset(0.0, 2.0),
+                                          )
+                                        ],
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: FlutterFlowRadioButton(
+                                              options: [
+                                                'TAVUK DÖNER',
+                                                'ET DÖNER',
+                                                'İSKENDER',
+                                                'SALATA'
+                                              ].toList(),
+                                              onChanged: (val) async {
+                                                setState(() {});
+                                                setState(() {
+                                                  FFAppState().selectedMeal =
+                                                      _model
+                                                          .mealsRadioButtonsValue!;
+                                                });
+                                                setState(() {});
+                                              },
+                                              controller: _model
+                                                      .mealsRadioButtonsValueController ??=
+                                                  FormFieldController<String>(
+                                                      null),
+                                              optionHeight: 32.0,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium,
+                                              selectedTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                              buttonPosition:
+                                                  RadioButtonPosition.left,
+                                              direction: Axis.vertical,
+                                              radioButtonColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              inactiveRadioButtonColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              toggleable: false,
+                                              horizontalAlignment:
+                                                  WrapAlignment.start,
+                                              verticalAlignment:
+                                                  WrapCrossAlignment.start,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 157.0,
+                                      height: 150.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: const [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x33000000),
+                                            offset: Offset(0.0, 2.0),
+                                          )
+                                        ],
                                       ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -265,10 +309,17 @@ class _ChooseEatingOrderPageWidgetState
                                                 '1,5 Porsiyon',
                                                 '2 Porsiyon'
                                               ].toList(),
-                                              onChanged: (val) =>
-                                                  setState(() {}),
+                                              onChanged: (val) async {
+                                                setState(() {});
+                                                FFAppState().update(() {
+                                                  FFAppState().selectedPortion =
+                                                      FFAppState()
+                                                          .selectedPortion;
+                                                });
+                                                setState(() {});
+                                              },
                                               controller: _model
-                                                      .radioButtonValueController ??=
+                                                      .protionRadioButtonValueController ??=
                                                   FormFieldController<String>(
                                                       null),
                                               optionHeight: 32.0,
@@ -303,7 +354,16 @@ class _ChooseEatingOrderPageWidgetState
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 15.0, 0.0, 15.0),
                                   child: Text(
-                                    FFAppState().selectedMeal,
+                                    '${FFAppState().selectedMeal} ${FFAppState().selectedPortion}',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 15.0, 0.0, 15.0),
+                                  child: Text(
+                                    'Hello World',
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -312,8 +372,17 @@ class _ChooseEatingOrderPageWidgetState
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 0.0),
                                   child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      setState(() {
+                                        FFAppState().selectedMeal =
+                                            _model.mealsRadioButtonsValue!;
+                                        FFAppState().selectedPortion =
+                                            _model.protionRadioButtonValue!;
+                                      });
+                                      setState(() {
+                                        FFAppState().addToOrder(
+                                            '${FFAppState().selectedMeal} ${FFAppState().selectedPortion}');
+                                      });
                                     },
                                     text: '~ EKLE ~',
                                     options: FFButtonOptions(
@@ -344,22 +413,59 @@ class _ChooseEatingOrderPageWidgetState
                     ],
                   ),
                 ),
-                ListTile(
-                  title: Text(
-                    'YEMEK İSMİ',
-                    style: FlutterFlowTheme.of(context).titleLarge,
+                Align(
+                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  child: Builder(
+                    builder: (context) {
+                      final order =
+                          FFAppState().order.toList().take(20).toList();
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: List.generate(order.length, (orderIndex) {
+                          final orderItem = order[orderIndex];
+                          return Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
+                            child: Container(
+                              width: 258.0,
+                              height: 31.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 4.0,
+                                    color: Color(0x33000000),
+                                    offset: Offset(0.0, 3.0),
+                                  )
+                                ],
+                                borderRadius: BorderRadius.circular(50.0),
+                              ),
+                              alignment: const AlignmentDirectional(0.00, 0.00),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onDoubleTap: () async {
+                                  setState(() {
+                                    FFAppState().removeFromOrder(orderItem);
+                                  });
+                                },
+                                child: Text(
+                                  orderItem,
+                                  textAlign: TextAlign.center,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                      );
+                    },
                   ),
-                  subtitle: Text(
-                    'KAÇ PORSİYON OLDUĞU',
-                    style: FlutterFlowTheme.of(context).labelMedium,
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 20.0,
-                  ),
-                  tileColor: FlutterFlowTheme.of(context).secondaryBackground,
-                  dense: false,
                 ),
               ],
             ),

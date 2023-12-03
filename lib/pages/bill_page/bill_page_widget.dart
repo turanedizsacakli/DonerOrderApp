@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'drinking_page_model.dart';
-export 'drinking_page_model.dart';
+import 'bill_page_model.dart';
+export 'bill_page_model.dart';
 
-class DrinkingPageWidget extends StatefulWidget {
-  const DrinkingPageWidget({super.key});
+class BillPageWidget extends StatefulWidget {
+  const BillPageWidget({super.key});
 
   @override
-  _DrinkingPageWidgetState createState() => _DrinkingPageWidgetState();
+  _BillPageWidgetState createState() => _BillPageWidgetState();
 }
 
-class _DrinkingPageWidgetState extends State<DrinkingPageWidget> {
-  late DrinkingPageModel _model;
+class _BillPageWidgetState extends State<BillPageWidget> {
+  late BillPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DrinkingPageModel());
+    _model = createModel(context, () => BillPageModel());
   }
 
   @override

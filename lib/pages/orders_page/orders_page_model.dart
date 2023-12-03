@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'eating_page_widget.dart' show EatingPageWidget;
+import 'orders_page_widget.dart' show OrdersPageWidget;
 import 'package:flutter/material.dart';
 
-class EatingPageModel extends FlutterFlowModel<EatingPageWidget> {
+class OrdersPageModel extends FlutterFlowModel<OrdersPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

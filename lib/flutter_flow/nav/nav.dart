@@ -52,14 +52,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const ChooseEatingDrinkingWidget(),
         ),
         FFRoute(
-          name: 'EatingPage',
-          path: '/eatingPage',
-          builder: (context, params) => const EatingPageWidget(),
+          name: 'OrdersPage',
+          path: '/ordersPage',
+          builder: (context, params) => const OrdersPageWidget(),
         ),
         FFRoute(
-          name: 'DrinkingPage',
-          path: '/drinkingPage',
-          builder: (context, params) => const DrinkingPageWidget(),
+          name: 'BillPage',
+          path: '/billPage',
+          builder: (context, params) => const BillPageWidget(),
         ),
         FFRoute(
           name: 'ChooseEatingOrderPage',

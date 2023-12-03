@@ -26,6 +26,13 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _selectedMeal = prefs.getString('ff_selectedMeal') ?? _selectedMeal;
     });
+    _safeInit(() {
+      _selectedPortion =
+          prefs.getString('ff_selectedPortion') ?? _selectedPortion;
+    });
+    _safeInit(() {
+      _order = prefs.getStringList('ff_order') ?? _order;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -54,6 +61,48 @@ class FFAppState extends ChangeNotifier {
   set selectedMeal(String value) {
     _selectedMeal = value;
     prefs.setString('ff_selectedMeal', value);
+  }
+
+  String _selectedPortion = '';
+  String get selectedPortion => _selectedPortion;
+  set selectedPortion(String value) {
+    _selectedPortion = value;
+    prefs.setString('ff_selectedPortion', value);
+  }
+
+  List<String> _order = [];
+  List<String> get order => _order;
+  set order(List<String> value) {
+    _order = value;
+    prefs.setStringList('ff_order', value);
+  }
+
+  void addToOrder(String value) {
+    _order.add(value);
+    prefs.setStringList('ff_order', _order);
+  }
+
+  void removeFromOrder(String value) {
+    _order.remove(value);
+    prefs.setStringList('ff_order', _order);
+  }
+
+  void removeAtIndexFromOrder(int index) {
+    _order.removeAt(index);
+    prefs.setStringList('ff_order', _order);
+  }
+
+  void updateOrderAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    _order[index] = updateFn(_order[index]);
+    prefs.setStringList('ff_order', _order);
+  }
+
+  void insertAtIndexInOrder(int index, String value) {
+    _order.insert(index, value);
+    prefs.setStringList('ff_order', _order);
   }
 }
 

@@ -110,6 +110,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           context.pushNamed('ChooseEatingDrinking');
+
+                          setState(() {
+                            FFAppState().waiterName = 'TURAN';
+                          });
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -152,6 +156,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           context.pushNamed('ChooseEatingDrinking');
+
+                          setState(() {
+                            FFAppState().waiterName = 'MUSTAFA';
+                          });
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -194,6 +202,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           context.pushNamed('ChooseEatingDrinking');
+
+                          setState(() {
+                            FFAppState().waiterName = 'HATİCE';
+                          });
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -236,6 +248,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           context.pushNamed('ChooseEatingDrinking');
+
+                          setState(() {
+                            FFAppState().waiterName = 'ALİ';
+                          });
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
