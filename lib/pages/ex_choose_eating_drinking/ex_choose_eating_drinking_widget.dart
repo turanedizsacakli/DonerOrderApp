@@ -4,27 +4,27 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'choose_eating_drinking_model.dart';
-export 'choose_eating_drinking_model.dart';
+import 'ex_choose_eating_drinking_model.dart';
+export 'ex_choose_eating_drinking_model.dart';
 
-class ChooseEatingDrinkingWidget extends StatefulWidget {
-  const ChooseEatingDrinkingWidget({super.key});
+class ExChooseEatingDrinkingWidget extends StatefulWidget {
+  const ExChooseEatingDrinkingWidget({super.key});
 
   @override
-  _ChooseEatingDrinkingWidgetState createState() =>
-      _ChooseEatingDrinkingWidgetState();
+  _ExChooseEatingDrinkingWidgetState createState() =>
+      _ExChooseEatingDrinkingWidgetState();
 }
 
-class _ChooseEatingDrinkingWidgetState
-    extends State<ChooseEatingDrinkingWidget> {
-  late ChooseEatingDrinkingModel _model;
+class _ExChooseEatingDrinkingWidgetState
+    extends State<ExChooseEatingDrinkingWidget> {
+  late ExChooseEatingDrinkingModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ChooseEatingDrinkingModel());
+    _model = createModel(context, () => ExChooseEatingDrinkingModel());
   }
 
   @override
@@ -127,42 +127,31 @@ class _ChooseEatingDrinkingWidgetState
                           ),
                           child: Align(
                             alignment: const AlignmentDirectional(0.00, 0.00),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed('ChooseEatingOrderPage');
-                              },
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Align(
-                                    alignment:
-                                        const AlignmentDirectional(0.00, -1.00),
-                                    child: Container(
-                                      width: 75.0,
-                                      height: 75.0,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/640/600',
-                                        fit: BoxFit.cover,
-                                      ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.00, -1.00),
+                                  child: Container(
+                                    width: 75.0,
+                                    height: 75.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.network(
+                                      'https://picsum.photos/seed/640/600',
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                  Text(
-                                    'Yiyecekler',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ],
-                              ),
+                                ),
+                                Text(
+                                  'Yiyecekler',
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -179,42 +168,31 @@ class _ChooseEatingDrinkingWidgetState
                           ),
                           child: Align(
                             alignment: const AlignmentDirectional(0.00, 0.00),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed('BillPage');
-                              },
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Align(
-                                    alignment:
-                                        const AlignmentDirectional(0.00, -1.00),
-                                    child: Container(
-                                      width: 75.0,
-                                      height: 75.0,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/640/600',
-                                        fit: BoxFit.cover,
-                                      ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.00, -1.00),
+                                  child: Container(
+                                    width: 75.0,
+                                    height: 75.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.network(
+                                      'https://picsum.photos/seed/640/600',
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                  Text(
-                                    'İçecekler',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ],
-                              ),
+                                ),
+                                Text(
+                                  'İçecekler',
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ],
                             ),
                           ),
                         ),

@@ -45,11 +45,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const HomePageWidget(),
         ),
         FFRoute(
-          name: 'ChooseEatingDrinking',
-          path: '/chooseEatingDrinking',
+          name: 'exChooseEatingDrinking',
+          path: '/exChooseEatingDrinking',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ChooseEatingDrinking')
-              : const ChooseEatingDrinkingWidget(),
+              ? const NavBarPage(initialPage: 'exChooseEatingDrinking')
+              : const ExChooseEatingDrinkingWidget(),
         ),
         FFRoute(
           name: 'OrdersPage',
@@ -57,9 +57,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const OrdersPageWidget(),
         ),
         FFRoute(
-          name: 'BillPage',
-          path: '/billPage',
-          builder: (context, params) => const BillPageWidget(),
+          name: 'exChooseEatingOrderPage',
+          path: '/exChooseEatingOrderPage',
+          builder: (context, params) => const ExChooseEatingOrderPageWidget(),
         ),
         FFRoute(
           name: 'ChooseEatingOrderPage',
