@@ -8,13 +8,15 @@ class ChooseEatingOrderPageModel
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
-  // State field(s) for MealsRadioButtons widget.
-  FormFieldController<String>? mealsRadioButtonsValueController;
-  // State field(s) for ProtionRadioButton widget.
-  FormFieldController<String>? protionRadioButtonValueController;
+  // State field(s) for tableDropDown widget.
+  String? tableDropDownValue;
+  FormFieldController<String>? tableDropDownValueController;
+  // State field(s) for mealDropDown widget.
+  String? mealDropDownValue;
+  FormFieldController<String>? mealDropDownValueController;
+  // State field(s) for portionDropDown widget.
+  String? portionDropDownValue;
+  FormFieldController<String>? portionDropDownValueController;
 
   /// Initialization and disposal methods.
 
@@ -29,8 +31,4 @@ class ChooseEatingOrderPageModel
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
-
-  String? get mealsRadioButtonsValue => mealsRadioButtonsValueController?.value;
-  String? get protionRadioButtonValue =>
-      protionRadioButtonValueController?.value;
 }

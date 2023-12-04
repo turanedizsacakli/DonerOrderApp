@@ -109,7 +109,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('ChooseEatingDrinking');
+                          context.pushNamed('ChooseEatingOrderPage');
 
                           setState(() {
                             FFAppState().waiterName = 'TURAN';
@@ -155,7 +155,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('ChooseEatingDrinking');
+                          context.pushNamed('ChooseEatingOrderPage');
 
                           setState(() {
                             FFAppState().waiterName = 'MUSTAFA';
@@ -201,7 +201,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('ChooseEatingDrinking');
+                          context.pushNamed('ChooseEatingOrderPage');
 
                           setState(() {
                             FFAppState().waiterName = 'HATİCE';
@@ -247,7 +247,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('ChooseEatingDrinking');
+                          context.pushNamed('ChooseEatingOrderPage');
 
                           setState(() {
                             FFAppState().waiterName = 'ALİ';
