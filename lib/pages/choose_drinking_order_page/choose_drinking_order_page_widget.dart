@@ -4,30 +4,34 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'choose_eating_order_page_model.dart';
-export 'choose_eating_order_page_model.dart';
+import 'choose_drinking_order_page_model.dart';
+export 'choose_drinking_order_page_model.dart';
 
-class ChooseEatingOrderPageWidget extends StatefulWidget {
-  const ChooseEatingOrderPageWidget({super.key});
+class ChooseDrinkingOrderPageWidget extends StatefulWidget {
+  const ChooseDrinkingOrderPageWidget({super.key});
 
   @override
-  _ChooseEatingOrderPageWidgetState createState() =>
-      _ChooseEatingOrderPageWidgetState();
+  _ChooseDrinkingOrderPageWidgetState createState() =>
+      _ChooseDrinkingOrderPageWidgetState();
 }
 
-class _ChooseEatingOrderPageWidgetState
-    extends State<ChooseEatingOrderPageWidget> {
-  late ChooseEatingOrderPageModel _model;
+class _ChooseDrinkingOrderPageWidgetState
+    extends State<ChooseDrinkingOrderPageWidget> {
+  late ChooseDrinkingOrderPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ChooseEatingOrderPageModel());
+    _model = createModel(context, () => ChooseDrinkingOrderPageModel());
+
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -112,49 +116,13 @@ class _ChooseEatingOrderPageWidgetState
                                 decoration: const BoxDecoration(
                                   color: Color(0x3F39D2C0),
                                 ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
-                                      child: Container(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/421/600',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Yemekler',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                width: 100.0,
-                                height: 100.0,
-                                decoration: const BoxDecoration(
-                                  color: Color(0x3C4B39EF),
-                                ),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context
-                                        .pushNamed('ChooseDrinkingOrderPage');
+                                    context.pushNamed('ChooseEatingOrderPage');
                                   },
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -169,7 +137,7 @@ class _ChooseEatingOrderPageWidgetState
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                                'ChooseDrinkingOrderPage');
+                                                'ChooseEatingOrderPage');
                                           },
                                           child: Container(
                                             width: 50.0,
@@ -179,7 +147,7 @@ class _ChooseEatingOrderPageWidgetState
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.network(
-                                              'https://picsum.photos/seed/462/600',
+                                              'https://picsum.photos/seed/421/600',
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -192,16 +160,51 @@ class _ChooseEatingOrderPageWidgetState
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                              'ChooseDrinkingOrderPage');
+                                              'ChooseEatingOrderPage');
                                         },
                                         child: Text(
-                                          'içecekler',
+                                          'Yemekler',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium,
                                         ),
                                       ),
                                     ],
                                   ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: const BoxDecoration(
+                                  color: Color(0x3C4B39EF),
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 10.0, 10.0, 10.0),
+                                      child: Container(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: const BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/462/600',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'içecekler',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -315,10 +318,10 @@ class _ChooseEatingOrderPageWidgetState
                                           _model.mealDropDownValueController ??=
                                               FormFieldController<String>(null),
                                       options: const [
-                                        'TAVUK DÖNER',
-                                        'ET DÖNER',
-                                        'İSKENDER',
-                                        'SALATA'
+                                        'AYRAN',
+                                        'ŞALGAM',
+                                        'KOLA',
+                                        'SU'
                                       ],
                                       onChanged: (val) async {
                                         setState(() =>
@@ -332,7 +335,7 @@ class _ChooseEatingOrderPageWidgetState
                                       height: 50.0,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium,
-                                      hintText: 'YEMEK SEÇİNİZ...',
+                                      hintText: 'İçecek Seçiniz...',
                                       icon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
                                         color: FlutterFlowTheme.of(context)
@@ -355,52 +358,76 @@ class _ChooseEatingOrderPageWidgetState
                                     ),
                                   ),
                                 ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.00, 0.00),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 20.0, 0.0, 10.0),
-                                    child: FlutterFlowDropDown<String>(
-                                      controller: _model
-                                              .portionDropDownValueController ??=
-                                          FormFieldController<String>(null),
-                                      options: const [
-                                        '1 PORSİYON',
-                                        '1,5 PORSİYON',
-                                        '2 PORSİYON'
-                                      ],
-                                      onChanged: (val) async {
-                                        setState(() =>
-                                            _model.portionDropDownValue = val);
-                                        setState(() {
-                                          FFAppState().selectedPortion =
-                                              _model.portionDropDownValue!;
-                                        });
-                                      },
-                                      width: 300.0,
-                                      height: 50.0,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                      hintText: 'PORSİYON SEÇİNİZ...',
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        size: 24.0,
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 10.0, 8.0, 0.0),
+                                  child: SizedBox(
+                                    width: 300.0,
+                                    child: TextFormField(
+                                      controller: _model.textController,
+                                      focusNode: _model.textFieldFocusNode,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        '_model.textController',
+                                        const Duration(milliseconds: 2000),
+                                        () async {
+                                          setState(() {
+                                            FFAppState().selectedPortion =
+                                                _model.textController.text;
+                                          });
+                                        },
                                       ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 2.0,
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      borderWidth: 2.0,
-                                      borderRadius: 8.0,
-                                      margin: const EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 4.0, 16.0, 4.0),
-                                      hidesUnderline: true,
-                                      isOverButton: true,
-                                      isSearchable: false,
-                                      isMultiSelect: false,
+                                      autofocus: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText:
+                                            'İçecek Miktarını Giriniz...',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                        alignLabelWithHint: false,
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                      keyboardType: TextInputType.number,
+                                      validator: _model.textControllerValidator
+                                          .asValidator(context),
                                     ),
                                   ),
                                 ),
@@ -422,7 +449,7 @@ class _ChooseEatingOrderPageWidgetState
                                         FFAppState().selectedMealAndDrinking =
                                             _model.mealDropDownValue!;
                                         FFAppState().selectedPortion =
-                                            _model.portionDropDownValue!;
+                                            _model.textController.text;
                                       });
                                       setState(() {
                                         FFAppState().addToOrder(

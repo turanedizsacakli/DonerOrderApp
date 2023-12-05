@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -30,26 +29,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const NavBarPage(),
+      errorBuilder: (context, state) => const HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const NavBarPage(),
+          builder: (context, _) => const HomePageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'HomePage')
-              : const HomePageWidget(),
-        ),
-        FFRoute(
-          name: 'exChooseEatingDrinking',
-          path: '/exChooseEatingDrinking',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'exChooseEatingDrinking')
-              : const ExChooseEatingDrinkingWidget(),
+          builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
           name: 'OrdersPage',
@@ -57,14 +47,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const OrdersPageWidget(),
         ),
         FFRoute(
-          name: 'exChooseEatingOrderPage',
-          path: '/exChooseEatingOrderPage',
-          builder: (context, params) => const ExChooseEatingOrderPageWidget(),
-        ),
-        FFRoute(
           name: 'ChooseEatingOrderPage',
           path: '/chooseEatingOrderPage',
           builder: (context, params) => const ChooseEatingOrderPageWidget(),
+        ),
+        FFRoute(
+          name: 'ChooseDrinkingOrderPage',
+          path: '/chooseDrinkingOrderPage',
+          builder: (context, params) => const ChooseDrinkingOrderPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

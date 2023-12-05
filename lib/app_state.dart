@@ -24,7 +24,9 @@ class FFAppState extends ChangeNotifier {
       _tableNumber = prefs.getInt('ff_tableNumber') ?? _tableNumber;
     });
     _safeInit(() {
-      _selectedMeal = prefs.getString('ff_selectedMeal') ?? _selectedMeal;
+      _selectedMealAndDrinking =
+          prefs.getString('ff_selectedMealAndDrinking') ??
+              _selectedMealAndDrinking;
     });
     _safeInit(() {
       _selectedPortion =
@@ -56,11 +58,11 @@ class FFAppState extends ChangeNotifier {
     prefs.setInt('ff_tableNumber', value);
   }
 
-  String _selectedMeal = '';
-  String get selectedMeal => _selectedMeal;
-  set selectedMeal(String value) {
-    _selectedMeal = value;
-    prefs.setString('ff_selectedMeal', value);
+  String _selectedMealAndDrinking = '';
+  String get selectedMealAndDrinking => _selectedMealAndDrinking;
+  set selectedMealAndDrinking(String value) {
+    _selectedMealAndDrinking = value;
+    prefs.setString('ff_selectedMealAndDrinking', value);
   }
 
   String _selectedPortion = '';
