@@ -35,6 +35,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _order = prefs.getStringList('ff_order') ?? _order;
     });
+    _safeInit(() {
+      _tableName = prefs.getString('ff_tableName') ?? _tableName;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -105,6 +108,13 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInOrder(int index, String value) {
     _order.insert(index, value);
     prefs.setStringList('ff_order', _order);
+  }
+
+  String _tableName = '';
+  String get tableName => _tableName;
+  set tableName(String value) {
+    _tableName = value;
+    prefs.setString('ff_tableName', value);
   }
 }
 
