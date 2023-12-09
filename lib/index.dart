@@ -5,3 +5,4 @@ export '/pages/choose_eating_order_page/choose_eating_order_page_widget.dart'
     show ChooseEatingOrderPageWidget;
 export '/pages/choose_drinking_order_page/choose_drinking_order_page_widget.dart'
     show ChooseDrinkingOrderPageWidget;
+export '/pages/choose_table/choose_table_widget.dart' show ChooseTableWidget;
