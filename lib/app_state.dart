@@ -38,6 +38,24 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _tableName = prefs.getString('ff_tableName') ?? _tableName;
     });
+    _safeInit(() {
+      _chicken = prefs.getInt('ff_chicken') ?? _chicken;
+    });
+    _safeInit(() {
+      _meat = prefs.getInt('ff_meat') ?? _meat;
+    });
+    _safeInit(() {
+      _account = prefs.getInt('ff_account') ?? _account;
+    });
+    _safeInit(() {
+      _tableAccount1 = prefs.getInt('ff_tableAccount1') ?? _tableAccount1;
+    });
+    _safeInit(() {
+      _tableAccount2 = prefs.getInt('ff_tableAccount2') ?? _tableAccount2;
+    });
+    _safeInit(() {
+      _tableAccount3 = prefs.getInt('ff_tableAccount3') ?? _tableAccount3;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -115,6 +133,48 @@ class FFAppState extends ChangeNotifier {
   set tableName(String value) {
     _tableName = value;
     prefs.setString('ff_tableName', value);
+  }
+
+  int _chicken = 60;
+  int get chicken => _chicken;
+  set chicken(int value) {
+    _chicken = value;
+    prefs.setInt('ff_chicken', value);
+  }
+
+  int _meat = 75;
+  int get meat => _meat;
+  set meat(int value) {
+    _meat = value;
+    prefs.setInt('ff_meat', value);
+  }
+
+  int _account = 0;
+  int get account => _account;
+  set account(int value) {
+    _account = value;
+    prefs.setInt('ff_account', value);
+  }
+
+  int _tableAccount1 = 0;
+  int get tableAccount1 => _tableAccount1;
+  set tableAccount1(int value) {
+    _tableAccount1 = value;
+    prefs.setInt('ff_tableAccount1', value);
+  }
+
+  int _tableAccount2 = 0;
+  int get tableAccount2 => _tableAccount2;
+  set tableAccount2(int value) {
+    _tableAccount2 = value;
+    prefs.setInt('ff_tableAccount2', value);
+  }
+
+  int _tableAccount3 = 0;
+  int get tableAccount3 => _tableAccount3;
+  set tableAccount3(int value) {
+    _tableAccount3 = value;
+    prefs.setInt('ff_tableAccount3', value);
   }
 }
 
