@@ -228,13 +228,21 @@ class _ChooseEatingOrderPageWidgetState
                               children: [
                                 Text(
                                   'Siparişi Alan Kişi : ',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
                                 Text(
                                   FFAppState().waiterName,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
                               ],
                             ),
@@ -243,48 +251,21 @@ class _ChooseEatingOrderPageWidgetState
                               children: [
                                 Text(
                                   'Masa Numarası : ',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
-                                FlutterFlowDropDown<String>(
-                                  controller:
-                                      _model.tableDropDownValueController ??=
-                                          FormFieldController<String>(
-                                    _model.tableDropDownValue ??= '',
-                                  ),
-                                  options:
-                                      List<String>.from(['1', '2', '3', '4']),
-                                  optionLabels: const [
-                                    'Masa 1',
-                                    'Masa 2',
-                                    'Masa 3',
-                                    'Masa 4'
-                                  ],
-                                  onChanged: (val) => setState(
-                                      () => _model.tableDropDownValue = val),
-                                  width: 270.0,
-                                  height: 50.0,
-                                  textStyle:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                  hintText: 'Masa Seç',
-                                  icon: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
-                                  ),
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  elevation: 2.0,
-                                  borderColor:
-                                      FlutterFlowTheme.of(context).alternate,
-                                  borderWidth: 2.0,
-                                  borderRadius: 8.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 4.0, 16.0, 4.0),
-                                  hidesUnderline: true,
-                                  isSearchable: false,
-                                  isMultiSelect: false,
+                                Text(
+                                  FFAppState().tableNumber.toString(),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
                               ],
                             ),
@@ -469,40 +450,103 @@ class _ChooseEatingOrderPageWidgetState
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: List.generate(order.length, (orderIndex) {
                           final orderItem = order[orderIndex];
-                          return Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 8.0),
-                            child: Container(
-                              width: 287.0,
-                              height: 31.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: const [
-                                  BoxShadow(
-                                    blurRadius: 4.0,
-                                    color: Color(0x33000000),
-                                    offset: Offset(0.0, 3.0),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(50.0),
-                              ),
-                              alignment: const AlignmentDirectional(0.00, 0.00),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onDoubleTap: () async {
-                                  setState(() {
-                                    FFAppState().removeFromOrder(orderItem);
-                                  });
-                                },
-                                child: Text(
-                                  orderItem,
-                                  textAlign: TextAlign.center,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                          return Align(
+                            alignment: const AlignmentDirectional(0.00, 0.00),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: Container(
+                                width: 287.0,
+                                height: 31.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x33000000),
+                                      offset: Offset(0.0, 3.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                alignment: const AlignmentDirectional(0.00, 0.00),
+                                child: Align(
+                                  alignment: const AlignmentDirectional(0.00, 0.00),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.00, 0.00),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onDoubleTap: () async {
+                                            setState(() {
+                                              FFAppState()
+                                                  .removeFromOrder(orderItem);
+                                            });
+                                          },
+                                          child: Text(
+                                            orderItem,
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Align(
+                                            alignment: const AlignmentDirectional(
+                                                0.00, 0.00),
+                                            child: Text(
+                                              () {
+                                                if (FFAppState().tableName ==
+                                                    'Masa 1') {
+                                                  return FFAppState()
+                                                      .tableAccount1
+                                                      .toString();
+                                                } else if (FFAppState()
+                                                        .tableName ==
+                                                    'Masa 2') {
+                                                  return FFAppState()
+                                                      .tableAccount2
+                                                      .toString();
+                                                } else if (FFAppState()
+                                                        .tableName ==
+                                                    'Masa 3') {
+                                                  return FFAppState()
+                                                      .tableAccount3
+                                                      .toString();
+                                                } else {
+                                                  return '0';
+                                                }
+                                              }(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
+                                          Text(
+                                            ' ₺',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

@@ -8,9 +8,6 @@ class ChooseEatingOrderPageModel
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for tableDropDown widget.
-  String? tableDropDownValue;
-  FormFieldController<String>? tableDropDownValueController;
   // State field(s) for mealDropDown widget.
   String? mealDropDownValue;
   FormFieldController<String>? mealDropDownValueController;

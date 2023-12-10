@@ -86,201 +86,252 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
               ),
               Expanded(
-                child: GridView(
-                  padding: EdgeInsets.zero,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 3.0,
-                    mainAxisSpacing: 10.0,
-                    childAspectRatio: 1.0,
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  child: GridView(
+                    padding: EdgeInsets.zero,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 3.0,
+                      mainAxisSpacing: 12.0,
+                      childAspectRatio: 1.0,
+                    ),
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 5.0, 0.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 10.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('ChooseTable');
+
+                                setState(() {
+                                  FFAppState().waiterName = 'TURAN';
+                                });
+                              },
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(0.00, -1.00),
+                                    child: Container(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/640/600',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'TURAN',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 10.0, 0.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 10.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('ChooseTable');
+
+                                setState(() {
+                                  FFAppState().waiterName = 'MUSTAFA';
+                                });
+                              },
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(0.00, -1.00),
+                                    child: Container(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/640/600',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'MUSTAFA',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 5.0, 0.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 10.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('ChooseTable');
+
+                                setState(() {
+                                  FFAppState().waiterName = 'HATİCE';
+                                });
+                              },
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(0.00, -1.00),
+                                    child: Container(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/640/600',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'HATİCE',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 10.0, 0.0),
+                        child: Container(
+                          width: 100.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 10.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('ChooseTable');
+
+                                setState(() {
+                                  FFAppState().waiterName = 'ALİ';
+                                });
+                              },
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(0.00, -1.00),
+                                    child: Container(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/640/600',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'ALİ',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    Container(
-                      width: 100.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('ChooseEatingOrderPage');
-
-                          setState(() {
-                            FFAppState().waiterName = 'TURAN';
-                          });
-                        },
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.00, -1.00),
-                              child: Container(
-                                width: 75.0,
-                                height: 75.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/640/600',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'TURAN',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 100.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('ChooseEatingOrderPage');
-
-                          setState(() {
-                            FFAppState().waiterName = 'MUSTAFA';
-                          });
-                        },
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.00, -1.00),
-                              child: Container(
-                                width: 75.0,
-                                height: 75.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/640/600',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'MUSTAFA',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 100.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('ChooseEatingOrderPage');
-
-                          setState(() {
-                            FFAppState().waiterName = 'HATİCE';
-                          });
-                        },
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.00, -1.00),
-                              child: Container(
-                                width: 75.0,
-                                height: 75.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/640/600',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'HATİCE',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 100.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('ChooseEatingOrderPage');
-
-                          setState(() {
-                            FFAppState().waiterName = 'ALİ';
-                          });
-                        },
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.00, -1.00),
-                              child: Container(
-                                width: 75.0,
-                                height: 75.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/640/600',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'ALİ',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ],
