@@ -69,6 +69,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'ChooseTable')
               : const ChooseTableWidget(),
+        ),
+        FFRoute(
+          name: 'AdminOrderPage',
+          path: '/adminOrderPage',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'AdminOrderPage')
+              : const AdminOrderPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
