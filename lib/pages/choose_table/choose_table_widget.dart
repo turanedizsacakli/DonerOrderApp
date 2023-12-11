@@ -171,7 +171,10 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                                         });
                                       },
                                       child: Text(
-                                        'burada fiyat',
+                                        valueOrDefault<String>(
+                                          FFAppState().tableAccount1.toString(),
+                                          '0',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -267,7 +270,10 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                                         });
                                       },
                                       child: Text(
-                                        'burada fiyat',
+                                        valueOrDefault<String>(
+                                          FFAppState().tableAccount2.toString(),
+                                          '0',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -363,7 +369,10 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                                         });
                                       },
                                       child: Text(
-                                        'burada fiyat',
+                                        valueOrDefault<String>(
+                                          FFAppState().tableAccount3.toString(),
+                                          '0',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),

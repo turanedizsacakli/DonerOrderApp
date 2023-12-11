@@ -109,8 +109,8 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
                         child: Container(
                           width: double.infinity,
                           constraints: const BoxConstraints(
@@ -147,11 +147,13 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget> {
                                         text: TextSpan(
                                           children: [
                                             const TextSpan(
-                                              text: 'Siparis #: ',
+                                              text: 'Siparis #: \n',
                                               style: TextStyle(),
                                             ),
                                             TextSpan(
-                                              text: '1.Masa',
+                                              text: FFAppState()
+                                                  .tableNumber
+                                                  .toString(),
                                               style: TextStyle(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -163,12 +165,14 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge,
                                         ),
+                                        maxLines: 2,
                                       ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
-                                          'Mon. July 3rd',
+                                          dateTimeFormat(
+                                              'M/d H:mm', getCurrentTimestamp),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium,
                                         ),
@@ -197,7 +201,7 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget> {
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(7.0, 0.0, 7.0, 0.0),
                                               child: Text(
-                                                'SiparişiAlan',
+                                                FFAppState().waiterName,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium,
@@ -217,10 +221,33 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 12.0),
                                       child: Text(
-                                        '\$TutarToplam',
+                                        () {
+                                          if (FFAppState().tableName ==
+                                              'Masa 1') {
+                                            return FFAppState()
+                                                .tableAccount1
+                                                .toString();
+                                          } else if (FFAppState().tableName ==
+                                              'Masa 2') {
+                                            return FFAppState()
+                                                .tableAccount2
+                                                .toString();
+                                          } else if (FFAppState().tableName ==
+                                              'Masa 3') {
+                                            return FFAppState()
+                                                .tableAccount3
+                                                .toString();
+                                          } else {
+                                            return '0';
+                                          }
+                                        }(),
                                         textAlign: TextAlign.end,
                                         style: FlutterFlowTheme.of(context)
-                                            .headlineSmall,
+                                            .headlineSmall
+                                            .override(
+                                              fontFamily: 'Outfit',
+                                              fontSize: 20.0,
+                                            ),
                                       ),
                                     ),
                                     Padding(

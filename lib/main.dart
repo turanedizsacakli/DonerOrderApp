@@ -113,6 +113,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'ChooseEatingOrderPage': const ChooseEatingOrderPageWidget(),
       'ChooseDrinkingOrderPage': const ChooseDrinkingOrderPageWidget(),
       'ChooseTable': const ChooseTableWidget(),
+      'AdminOrderPage': const AdminOrderPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -161,6 +162,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Table Page',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.dining,
+              size: 24.0,
+            ),
+            label: 'Home',
             tooltip: '',
           )
         ],
