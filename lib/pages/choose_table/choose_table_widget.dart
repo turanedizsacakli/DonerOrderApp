@@ -23,6 +23,8 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChooseTableModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -117,13 +119,17 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed('ChooseEatingOrderPage');
+
+                            setState(() {
+                              FFAppState().tableNumber = 1;
+                            });
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -216,13 +222,17 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed('ChooseEatingOrderPage');
+
+                            setState(() {
+                              FFAppState().tableNumber = 2;
+                            });
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -315,13 +325,17 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed('ChooseEatingOrderPage');
+
+                            setState(() {
+                              FFAppState().tableNumber = 3;
+                            });
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -429,7 +443,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -500,7 +514,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -571,7 +585,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -651,7 +665,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -722,7 +736,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -793,7 +807,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -873,7 +887,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -944,7 +958,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),
@@ -1015,7 +1029,7 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 0.0),

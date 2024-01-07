@@ -23,6 +23,8 @@ class _AdminOrderPageWidgetState extends State<AdminOrderPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AdminOrderPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -89,7 +91,7 @@ class _AdminOrderPageWidgetState extends State<AdminOrderPageWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.00, -1.00),
+                  alignment: const AlignmentDirectional(0.0, -1.0),
                   child: Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                     child: SingleChildScrollView(
@@ -120,7 +122,7 @@ class _AdminOrderPageWidgetState extends State<AdminOrderPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
@@ -135,7 +137,7 @@ class _AdminOrderPageWidgetState extends State<AdminOrderPageWidget> {
                             children: List.generate(order.length, (orderIndex) {
                               final orderItem = order[orderIndex];
                               return Align(
-                                alignment: const AlignmentDirectional(0.00, 0.00),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
@@ -154,18 +156,17 @@ class _AdminOrderPageWidgetState extends State<AdminOrderPageWidget> {
                                       ],
                                       borderRadius: BorderRadius.circular(50.0),
                                     ),
-                                    alignment: const AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Align(
-                                      alignment:
-                                          const AlignmentDirectional(0.00, 0.00),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Align(
-                                            alignment: const AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -198,7 +199,7 @@ class _AdminOrderPageWidgetState extends State<AdminOrderPageWidget> {
                                             children: [
                                               Align(
                                                 alignment: const AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Text(
                                                   () {
                                                     if (FFAppState()

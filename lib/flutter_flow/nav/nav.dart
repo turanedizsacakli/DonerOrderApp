@@ -76,6 +76,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'AdminOrderPage')
               : const AdminOrderPageWidget(),
+        ),
+        FFRoute(
+          name: 'ChooseEatingOrderPageCopy',
+          path: '/chooseEatingOrderPageCopy',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'ChooseEatingOrderPageCopy')
+              : const ChooseEatingOrderPageCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -147,6 +154,7 @@ class FFParameters {
     String paramName,
     ParamType type, [
     bool isList = false,
+    List<String>? collectionNamePath,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -160,11 +168,8 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(
-      param,
-      type,
-      isList,
-    );
+    return deserializeParam<T>(param, type, isList,
+        collectionNamePath: collectionNamePath);
   }
 }
 
@@ -204,13 +209,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },

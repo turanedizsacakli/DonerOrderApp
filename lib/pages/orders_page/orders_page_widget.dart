@@ -23,6 +23,8 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OrdersPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -195,8 +197,8 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget> {
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: const AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(7.0, 0.0, 7.0, 0.0),
@@ -268,7 +270,7 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.00, 0.00),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(

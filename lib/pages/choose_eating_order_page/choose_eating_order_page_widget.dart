@@ -28,6 +28,8 @@ class _ChooseEatingOrderPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ChooseEatingOrderPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -116,8 +118,7 @@ class _ChooseEatingOrderPageWidgetState
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
+                                      padding: const EdgeInsets.all(10.0),
                                       child: Container(
                                         width: 50.0,
                                         height: 50.0,
@@ -160,8 +161,7 @@ class _ChooseEatingOrderPageWidgetState
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 10.0),
+                                        padding: const EdgeInsets.all(10.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -287,7 +287,7 @@ class _ChooseEatingOrderPageWidgetState
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.00, 0.00),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 0.0),
@@ -337,7 +337,7 @@ class _ChooseEatingOrderPageWidgetState
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.00, 0.00),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 10.0),
@@ -440,7 +440,7 @@ class _ChooseEatingOrderPageWidgetState
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Builder(
                     builder: (context) {
                       final order =
@@ -451,7 +451,7 @@ class _ChooseEatingOrderPageWidgetState
                         children: List.generate(order.length, (orderIndex) {
                           final orderItem = order[orderIndex];
                           return Align(
-                            alignment: const AlignmentDirectional(0.00, 0.00),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 8.0),
@@ -470,9 +470,9 @@ class _ChooseEatingOrderPageWidgetState
                                   ],
                                   borderRadius: BorderRadius.circular(50.0),
                                 ),
-                                alignment: const AlignmentDirectional(0.00, 0.00),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.00, 0.00),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -480,7 +480,7 @@ class _ChooseEatingOrderPageWidgetState
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.00, 0.00),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -508,8 +508,8 @@ class _ChooseEatingOrderPageWidgetState
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
-                                            alignment: const AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               () {
                                                 if (FFAppState().tableName ==
@@ -557,7 +557,7 @@ class _ChooseEatingOrderPageWidgetState
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.00, 1.00),
+                  alignment: const AlignmentDirectional(0.0, 1.0),
                   child: FFButtonWidget(
                     onPressed: () {
                       print('Button pressed ...');
