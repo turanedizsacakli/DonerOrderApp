@@ -22,6 +22,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -130,8 +132,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Align(
-                                    alignment:
-                                        const AlignmentDirectional(0.00, -1.00),
+                                    alignment: const AlignmentDirectional(0.0, -1.0),
                                     child: Container(
                                       width: 75.0,
                                       height: 75.0,
@@ -188,8 +189,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Align(
-                                    alignment:
-                                        const AlignmentDirectional(0.00, -1.00),
+                                    alignment: const AlignmentDirectional(0.0, -1.0),
                                     child: Container(
                                       width: 75.0,
                                       height: 75.0,
@@ -246,8 +246,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Align(
-                                    alignment:
-                                        const AlignmentDirectional(0.00, -1.00),
+                                    alignment: const AlignmentDirectional(0.0, -1.0),
                                     child: Container(
                                       width: 75.0,
                                       height: 75.0,
@@ -304,8 +303,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Align(
-                                    alignment:
-                                        const AlignmentDirectional(0.00, -1.00),
+                                    alignment: const AlignmentDirectional(0.0, -1.0),
                                     child: Container(
                                       width: 75.0,
                                       height: 75.0,

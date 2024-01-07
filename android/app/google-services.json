@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "46602070194",
+    "project_id": "donerapp-dce39",
+    "storage_bucket": "donerapp-dce39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46602070194:android:86610cab2a533c618cc1ab",
+        "android_client_info": {
+          "package_name": "com.mycompany.donerorderapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvPTQSfEpxLR7HW-Je6POCXFPfc6WUbYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

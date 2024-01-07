@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
@@ -11,6 +12,7 @@ import 'index.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
+  await initFirebase();
 
   await FlutterFlowTheme.initialize();
 
@@ -114,6 +116,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'ChooseDrinkingOrderPage': const ChooseDrinkingOrderPageWidget(),
       'ChooseTable': const ChooseTableWidget(),
       'AdminOrderPage': const AdminOrderPageWidget(),
+      'ChooseEatingOrderPageCopy': const ChooseEatingOrderPageCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -162,6 +165,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Table Page',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.dining,
+              size: 24.0,
+            ),
+            label: 'Home',
             tooltip: '',
           ),
           BottomNavigationBarItem(
