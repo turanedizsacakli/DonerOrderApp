@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -286,54 +287,67 @@ class _ChooseEatingOrderPageWidgetState
                                         ),
                                   ),
                                 ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
-                                    child: FlutterFlowDropDown<String>(
-                                      controller:
-                                          _model.mealDropDownValueController ??=
-                                              FormFieldController<String>(null),
-                                      options: const [
-                                        'TAVUK DÖNER',
-                                        'ET DÖNER',
-                                        'İSKENDER',
-                                        'SALATA'
-                                      ],
-                                      onChanged: (val) async {
-                                        setState(() =>
-                                            _model.mealDropDownValue = val);
-                                        setState(() {
-                                          FFAppState().selectedMealAndDrinking =
-                                              _model.mealDropDownValue!;
-                                        });
-                                      },
-                                      width: 300.0,
-                                      height: 50.0,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                      hintText: 'YEMEK SEÇİNİZ...',
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        size: 24.0,
-                                      ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 2.0,
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      borderWidth: 2.0,
-                                      borderRadius: 8.0,
-                                      margin: const EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 4.0, 16.0, 4.0),
-                                      hidesUnderline: true,
-                                      isOverButton: true,
-                                      isSearchable: false,
-                                      isMultiSelect: false,
-                                    ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 20.0, 0.0, 0.0),
+                                  child: StreamBuilder<List<MealsRecord>>(
+                                    stream: queryMealsRecord(),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<MealsRecord>
+                                          dropDownMealsRecordList =
+                                          snapshot.data!;
+                                      return FlutterFlowDropDown<String>(
+                                        controller: _model
+                                                .dropDownValueController ??=
+                                            FormFieldController<String>(null),
+                                        options: dropDownMealsRecordList
+                                            .map((e) => e.mealName)
+                                            .toList(),
+                                        onChanged: (val) => setState(
+                                            () => _model.dropDownValue = val),
+                                        width: 300.0,
+                                        height: 50.0,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        hintText: 'Please select...',
+                                        icon: Icon(
+                                          Icons.keyboard_arrow_down_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          size: 24.0,
+                                        ),
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        elevation: 2.0,
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .alternate,
+                                        borderWidth: 2.0,
+                                        borderRadius: 8.0,
+                                        margin: const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 4.0, 16.0, 4.0),
+                                        hidesUnderline: true,
+                                        isOverButton: true,
+                                        isSearchable: false,
+                                        isMultiSelect: false,
+                                      );
+                                    },
                                   ),
                                 ),
                                 Align(
@@ -350,14 +364,8 @@ class _ChooseEatingOrderPageWidgetState
                                         '1,5 PORSİYON',
                                         '2 PORSİYON'
                                       ],
-                                      onChanged: (val) async {
-                                        setState(() =>
-                                            _model.portionDropDownValue = val);
-                                        setState(() {
-                                          FFAppState().selectedPortion =
-                                              _model.portionDropDownValue!;
-                                        });
-                                      },
+                                      onChanged: (val) => setState(() =>
+                                          _model.portionDropDownValue = val),
                                       width: 300.0,
                                       height: 50.0,
                                       textStyle: FlutterFlowTheme.of(context)
@@ -388,27 +396,54 @@ class _ChooseEatingOrderPageWidgetState
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 15.0, 0.0, 15.0),
-                                  child: Text(
-                                    '${FFAppState().selectedMealAndDrinking} ${FFAppState().selectedPortion}',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  child: StreamBuilder<List<MealsRecord>>(
+                                    stream: queryMealsRecord(
+                                      singleRecord: true,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<MealsRecord> textMealsRecordList =
+                                          snapshot.data!;
+                                      // Return an empty Container when the item does not exist.
+                                      if (snapshot.data!.isEmpty) {
+                                        return Container();
+                                      }
+                                      final textMealsRecord =
+                                          textMealsRecordList.isNotEmpty
+                                              ? textMealsRecordList.first
+                                              : null;
+                                      return Text(
+                                        valueOrDefault<String>(
+                                          textMealsRecord?.mealName,
+                                          '000',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      );
+                                    },
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 20.0),
                                   child: FFButtonWidget(
-                                    onPressed: () async {
-                                      setState(() {
-                                        FFAppState().selectedMealAndDrinking =
-                                            _model.mealDropDownValue!;
-                                        FFAppState().selectedPortion =
-                                            _model.portionDropDownValue!;
-                                      });
-                                      setState(() {
-                                        FFAppState().addToOrder(
-                                            '${FFAppState().selectedMealAndDrinking} ${FFAppState().selectedPortion}');
-                                      });
+                                    onPressed: () {
+                                      print('Button pressed ...');
                                     },
                                     text: '~ EKLE ~',
                                     options: FFButtonOptions(
@@ -471,83 +506,6 @@ class _ChooseEatingOrderPageWidgetState
                                   borderRadius: BorderRadius.circular(50.0),
                                 ),
                                 alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onDoubleTap: () async {
-                                            setState(() {
-                                              FFAppState()
-                                                  .removeFromOrder(orderItem);
-                                            });
-                                          },
-                                          child: Text(
-                                            orderItem,
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Text(
-                                              () {
-                                                if (FFAppState().tableName ==
-                                                    'Masa 1') {
-                                                  return FFAppState()
-                                                      .tableAccount1
-                                                      .toString();
-                                                } else if (FFAppState()
-                                                        .tableName ==
-                                                    'Masa 2') {
-                                                  return FFAppState()
-                                                      .tableAccount2
-                                                      .toString();
-                                                } else if (FFAppState()
-                                                        .tableName ==
-                                                    'Masa 3') {
-                                                  return FFAppState()
-                                                      .tableAccount3
-                                                      .toString();
-                                                } else {
-                                                  return '0';
-                                                }
-                                              }(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ),
-                                          Text(
-                                            ' ₺',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
                               ),
                             ),
                           );
