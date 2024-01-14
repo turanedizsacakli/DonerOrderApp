@@ -209,15 +209,6 @@ class _ChooseEatingOrderPageCopyWidgetState
                         ),
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
-                        child: Text(
-                          'Below are your most recent orders',
-                          textAlign: TextAlign.start,
-                          style: FlutterFlowTheme.of(context).labelMedium,
-                        ),
-                      ),
-                      Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 24.0),
                         child: Column(
@@ -387,7 +378,7 @@ class _ChooseEatingOrderPageCopyWidgetState
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 15.0),
+                                      0.0, 10.0, 0.0, 10.0),
                                   child: Text(
                                     '${FFAppState().selectedMealAndDrinking} ${FFAppState().selectedPortion}',
                                     style:
@@ -396,7 +387,7 @@ class _ChooseEatingOrderPageCopyWidgetState
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 20.0, 0.0, 20.0),
+                                      0.0, 10.0, 0.0, 10.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {

@@ -11,9 +11,13 @@ class ChooseEatingOrderPageModel
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
-  // State field(s) for portionDropDown widget.
-  String? portionDropDownValue;
-  FormFieldController<String>? portionDropDownValueController;
+  // State field(s) for portionRadioButton widget.
+  FormFieldController<String>? portionRadioButtonValueController;
+  // State field(s) for featuresCheckboxGroup widget.
+  List<String>? featuresCheckboxGroupValues;
+  FormFieldController<List<String>>? featuresCheckboxGroupValueController;
+  // State field(s) for RadioButton widget.
+  FormFieldController<String>? radioButtonValueController;
 
   /// Initialization and disposal methods.
 
@@ -28,4 +32,8 @@ class ChooseEatingOrderPageModel
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
+
+  String? get portionRadioButtonValue =>
+      portionRadioButtonValueController?.value;
+  String? get radioButtonValue => radioButtonValueController?.value;
 }
