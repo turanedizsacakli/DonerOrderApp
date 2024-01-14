@@ -112,10 +112,10 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': const HomePageWidget(),
-      'ChooseEatingOrderPage': const ChooseEatingOrderPageWidget(),
-      'ChooseDrinkingOrderPage': const ChooseDrinkingOrderPageWidget(),
       'ChooseTable': const ChooseTableWidget(),
+      'ChooseEatingOrderPage': const ChooseEatingOrderPageWidget(),
       'AdminOrderPage': const AdminOrderPageWidget(),
+      'ChooseDrinkingOrderPage': const ChooseDrinkingOrderPageWidget(),
       'ChooseEatingOrderPageCopy': const ChooseEatingOrderPageCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -145,22 +145,6 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.dining,
-              size: 24.0,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.local_drink,
-              size: 24.0,
-            ),
-            label: 'Drinking',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
               Icons.table_bar,
               size: 24.0,
             ),
@@ -173,6 +157,22 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.dining,
+              size: 24.0,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.local_drink,
+              size: 24.0,
+            ),
+            label: 'Drinking',
             tooltip: '',
           ),
           BottomNavigationBarItem(
