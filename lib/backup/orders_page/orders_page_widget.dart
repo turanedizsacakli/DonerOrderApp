@@ -11,7 +11,7 @@ class OrdersPageWidget extends StatefulWidget {
   const OrdersPageWidget({super.key});
 
   @override
-  _OrdersPageWidgetState createState() => _OrdersPageWidgetState();
+  State<OrdersPageWidget> createState() => _OrdersPageWidgetState();
 }
 
 class _OrdersPageWidgetState extends State<OrdersPageWidget> {
@@ -223,26 +223,7 @@ class _OrdersPageWidgetState extends State<OrdersPageWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 12.0),
                                       child: Text(
-                                        () {
-                                          if (FFAppState().tableName ==
-                                              'Masa 1') {
-                                            return FFAppState()
-                                                .tableAccount1
-                                                .toString();
-                                          } else if (FFAppState().tableName ==
-                                              'Masa 2') {
-                                            return FFAppState()
-                                                .tableAccount2
-                                                .toString();
-                                          } else if (FFAppState().tableName ==
-                                              'Masa 3') {
-                                            return FFAppState()
-                                                .tableAccount3
-                                                .toString();
-                                          } else {
-                                            return '0';
-                                          }
-                                        }(),
+                                        '\$TutarToplam',
                                         textAlign: TextAlign.end,
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall

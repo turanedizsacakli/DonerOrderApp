@@ -59,9 +59,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ChooseDrinkingOrderPage',
           path: '/chooseDrinkingOrderPage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ChooseDrinkingOrderPage')
-              : const ChooseDrinkingOrderPageWidget(),
+          builder: (context, params) => const ChooseDrinkingOrderPageWidget(),
         ),
         FFRoute(
           name: 'ChooseTable',
@@ -80,9 +78,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ChooseEatingOrderPageCopy',
           path: '/chooseEatingOrderPageCopy',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ChooseEatingOrderPageCopy')
-              : const ChooseEatingOrderPageCopyWidget(),
+          builder: (context, params) => const ChooseEatingOrderPageCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

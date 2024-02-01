@@ -11,7 +11,7 @@ class AdminOrderPageWidget extends StatefulWidget {
   const AdminOrderPageWidget({super.key});
 
   @override
-  _AdminOrderPageWidgetState createState() => _AdminOrderPageWidgetState();
+  State<AdminOrderPageWidget> createState() => _AdminOrderPageWidgetState();
 }
 
 class _AdminOrderPageWidgetState extends State<AdminOrderPageWidget> {
@@ -201,29 +201,7 @@ class _AdminOrderPageWidgetState extends State<AdminOrderPageWidget> {
                                                 alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
-                                                  () {
-                                                    if (FFAppState()
-                                                            .tableName ==
-                                                        'Masa 1') {
-                                                      return FFAppState()
-                                                          .tableAccount1
-                                                          .toString();
-                                                    } else if (FFAppState()
-                                                            .tableName ==
-                                                        'Masa 2') {
-                                                      return FFAppState()
-                                                          .tableAccount2
-                                                          .toString();
-                                                    } else if (FFAppState()
-                                                            .tableName ==
-                                                        'Masa 3') {
-                                                      return FFAppState()
-                                                          .tableAccount3
-                                                          .toString();
-                                                    } else {
-                                                      return '0';
-                                                    }
-                                                  }(),
+                                                  'Hello World',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium,
