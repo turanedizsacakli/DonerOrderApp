@@ -16,11 +16,6 @@ class OrderRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "id" field.
-  int? _id;
-  int get id => _id ?? 0;
-  bool hasId() => _id != null;
-
   // "tableNumber" field.
   int? _tableNumber;
   int get tableNumber => _tableNumber ?? 0;
@@ -62,7 +57,6 @@ class OrderRecord extends FirestoreRecord {
   bool hasWaiterName() => _waiterName != null;
 
   void _initializeFields() {
-    _id = castToType<int>(snapshotData['id']);
     _tableNumber = castToType<int>(snapshotData['tableNumber']);
     _mealName = snapshotData['mealName'] as String?;
     _portionOfMeal = castToType<double>(snapshotData['portionOfMeal']);
@@ -107,7 +101,6 @@ class OrderRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createOrderRecordData({
-  int? id,
   int? tableNumber,
   String? mealName,
   double? portionOfMeal,
@@ -118,7 +111,6 @@ Map<String, dynamic> createOrderRecordData({
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'id': id,
       'tableNumber': tableNumber,
       'mealName': mealName,
       'portionOfMeal': portionOfMeal,
@@ -138,8 +130,7 @@ class OrderRecordDocumentEquality implements Equality<OrderRecord> {
   @override
   bool equals(OrderRecord? e1, OrderRecord? e2) {
     const listEquality = ListEquality();
-    return e1?.id == e2?.id &&
-        e1?.tableNumber == e2?.tableNumber &&
+    return e1?.tableNumber == e2?.tableNumber &&
         e1?.mealName == e2?.mealName &&
         e1?.portionOfMeal == e2?.portionOfMeal &&
         listEquality.equals(e1?.featuresOfMeal, e2?.featuresOfMeal) &&
@@ -151,7 +142,6 @@ class OrderRecordDocumentEquality implements Equality<OrderRecord> {
 
   @override
   int hash(OrderRecord? e) => const ListEquality().hash([
-        e?.id,
         e?.tableNumber,
         e?.mealName,
         e?.portionOfMeal,

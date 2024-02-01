@@ -5,12 +5,16 @@ import 'package:flutter/material.dart';
 
 class ChooseEatingOrderPageModel
     extends FlutterFlowModel<ChooseEatingOrderPageWidget> {
+  ///  Local state fields for this page.
+
+  double? cost = 0.0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // State field(s) for mealDropDown widget.
+  String? mealDropDownValue;
+  FormFieldController<String>? mealDropDownValueController;
   // State field(s) for portionRadioButton widget.
   FormFieldController<String>? portionRadioButtonValueController;
   // State field(s) for featuresCheckboxGroup widget.

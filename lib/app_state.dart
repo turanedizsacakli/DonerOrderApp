@@ -49,13 +49,7 @@ class FFAppState extends ChangeNotifier {
       _account = prefs.getInt('ff_account') ?? _account;
     });
     _safeInit(() {
-      _tableAccount1 = prefs.getInt('ff_tableAccount1') ?? _tableAccount1;
-    });
-    _safeInit(() {
-      _tableAccount2 = prefs.getInt('ff_tableAccount2') ?? _tableAccount2;
-    });
-    _safeInit(() {
-      _tableAccount3 = prefs.getInt('ff_tableAccount3') ?? _tableAccount3;
+      _tableAccount = prefs.getInt('ff_tableAccount') ?? _tableAccount;
     });
   }
 
@@ -157,25 +151,40 @@ class FFAppState extends ChangeNotifier {
     prefs.setInt('ff_account', value);
   }
 
-  int _tableAccount1 = 0;
-  int get tableAccount1 => _tableAccount1;
-  set tableAccount1(int value) {
-    _tableAccount1 = value;
-    prefs.setInt('ff_tableAccount1', value);
+  int _tableAccount = 0;
+  int get tableAccount => _tableAccount;
+  set tableAccount(int value) {
+    _tableAccount = value;
+    prefs.setInt('ff_tableAccount', value);
   }
 
-  int _tableAccount2 = 0;
-  int get tableAccount2 => _tableAccount2;
-  set tableAccount2(int value) {
-    _tableAccount2 = value;
-    prefs.setInt('ff_tableAccount2', value);
+  List<String> _featuresListState = [];
+  List<String> get featuresListState => _featuresListState;
+  set featuresListState(List<String> value) {
+    _featuresListState = value;
   }
 
-  int _tableAccount3 = 0;
-  int get tableAccount3 => _tableAccount3;
-  set tableAccount3(int value) {
-    _tableAccount3 = value;
-    prefs.setInt('ff_tableAccount3', value);
+  void addToFeaturesListState(String value) {
+    _featuresListState.add(value);
+  }
+
+  void removeFromFeaturesListState(String value) {
+    _featuresListState.remove(value);
+  }
+
+  void removeAtIndexFromFeaturesListState(int index) {
+    _featuresListState.removeAt(index);
+  }
+
+  void updateFeaturesListStateAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    _featuresListState[index] = updateFn(_featuresListState[index]);
+  }
+
+  void insertAtIndexInFeaturesListState(int index, String value) {
+    _featuresListState.insert(index, value);
   }
 }
 

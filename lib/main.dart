@@ -74,11 +74,9 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(
         brightness: Brightness.light,
-        scrollbarTheme: const ScrollbarThemeData(),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        scrollbarTheme: const ScrollbarThemeData(),
       ),
       themeMode: _themeMode,
       routerConfig: _router,
@@ -112,11 +110,9 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': const HomePageWidget(),
-      'ChooseTable': const ChooseTableWidget(),
       'ChooseEatingOrderPage': const ChooseEatingOrderPageWidget(),
+      'ChooseTable': const ChooseTableWidget(),
       'AdminOrderPage': const AdminOrderPageWidget(),
-      'ChooseDrinkingOrderPage': const ChooseDrinkingOrderPageWidget(),
-      'ChooseEatingOrderPageCopy': const ChooseEatingOrderPageCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -145,34 +141,18 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
+              Icons.dining,
+              size: 24.0,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
               Icons.table_bar,
               size: 24.0,
             ),
             label: 'Table Page',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.dining,
-              size: 24.0,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.dining,
-              size: 24.0,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.local_drink,
-              size: 24.0,
-            ),
-            label: 'Drinking',
             tooltip: '',
           ),
           BottomNavigationBarItem(

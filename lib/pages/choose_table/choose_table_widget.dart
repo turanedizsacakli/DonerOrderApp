@@ -11,7 +11,7 @@ class ChooseTableWidget extends StatefulWidget {
   const ChooseTableWidget({super.key});
 
   @override
-  _ChooseTableWidgetState createState() => _ChooseTableWidgetState();
+  State<ChooseTableWidget> createState() => _ChooseTableWidgetState();
 }
 
 class _ChooseTableWidgetState extends State<ChooseTableWidget> {
@@ -169,16 +169,16 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         setState(() {
-                                          FFAppState().tableAccount1 =
+                                          FFAppState().tableAccount =
                                               valueOrDefault<int>(
-                                            FFAppState().tableAccount1,
+                                            FFAppState().tableAccount,
                                             0,
                                           );
                                         });
                                       },
                                       child: Text(
                                         valueOrDefault<String>(
-                                          FFAppState().tableAccount1.toString(),
+                                          FFAppState().tableAccount.toString(),
                                           '0',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -271,19 +271,10 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        setState(() {
-                                          FFAppState().tableAccount2 =
-                                              valueOrDefault<int>(
-                                            FFAppState().tableAccount2,
-                                            0,
-                                          );
-                                        });
+                                        setState(() {});
                                       },
                                       child: Text(
-                                        valueOrDefault<String>(
-                                          FFAppState().tableAccount2.toString(),
-                                          '0',
-                                        ),
+                                        FFAppState().tableAccount.toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -374,19 +365,10 @@ class _ChooseTableWidgetState extends State<ChooseTableWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        setState(() {
-                                          FFAppState().tableAccount3 =
-                                              valueOrDefault<int>(
-                                            FFAppState().tableAccount3,
-                                            0,
-                                          );
-                                        });
+                                        setState(() {});
                                       },
                                       child: Text(
-                                        valueOrDefault<String>(
-                                          FFAppState().tableAccount3.toString(),
-                                          '0',
-                                        ),
+                                        'burada fiyat',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),

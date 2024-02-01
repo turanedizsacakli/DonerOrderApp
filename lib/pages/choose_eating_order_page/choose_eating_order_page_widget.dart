@@ -17,7 +17,7 @@ class ChooseEatingOrderPageWidget extends StatefulWidget {
   const ChooseEatingOrderPageWidget({super.key});
 
   @override
-  _ChooseEatingOrderPageWidgetState createState() =>
+  State<ChooseEatingOrderPageWidget> createState() =>
       _ChooseEatingOrderPageWidgetState();
 }
 
@@ -96,6 +96,7 @@ class _ChooseEatingOrderPageWidgetState
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SingleChildScrollView(
@@ -203,17 +204,17 @@ class _ChooseEatingOrderPageWidgetState
                                         );
                                       }
                                       List<MealsRecord>
-                                          dropDownMealsRecordList =
+                                          mealDropDownMealsRecordList =
                                           snapshot.data!;
                                       return FlutterFlowDropDown<String>(
                                         controller: _model
-                                                .dropDownValueController ??=
+                                                .mealDropDownValueController ??=
                                             FormFieldController<String>(null),
-                                        options: dropDownMealsRecordList
+                                        options: mealDropDownMealsRecordList
                                             .map((e) => e.mealName)
                                             .toList(),
-                                        onChanged: (val) => setState(
-                                            () => _model.dropDownValue = val),
+                                        onChanged: (val) => setState(() =>
+                                            _model.mealDropDownValue = val),
                                         width: 300.0,
                                         height: 50.0,
                                         textStyle: FlutterFlowTheme.of(context)
@@ -248,6 +249,11 @@ class _ChooseEatingOrderPageWidgetState
                                       0.0, 5.0, 0.0, 10.0),
                                   child: StreamBuilder<List<MealsRecord>>(
                                     stream: queryMealsRecord(
+                                      queryBuilder: (mealsRecord) =>
+                                          mealsRecord.where(
+                                        'mealName',
+                                        isEqualTo: _model.mealDropDownValue,
+                                      ),
                                       singleRecord: true,
                                     ),
                                     builder: (context, snapshot) {
@@ -278,7 +284,10 @@ class _ChooseEatingOrderPageWidgetState
                                               ? textMealsRecordList.first
                                               : null;
                                       return Text(
-                                        textMealsRecord!.mealCost.toString(),
+                                        valueOrDefault<String>(
+                                          textMealsRecord?.mealCost.toString(),
+                                          '00',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       );
@@ -348,9 +357,19 @@ class _ChooseEatingOrderPageWidgetState
                                                   'Ketçap',
                                                   'Mayonez'
                                                 ],
-                                                onChanged: (val) => setState(() =>
-                                                    _model.featuresCheckboxGroupValues =
-                                                        val),
+                                                onChanged: (val) async {
+                                                  setState(() => _model
+                                                          .featuresCheckboxGroupValues =
+                                                      val);
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .featuresListState =
+                                                        _model
+                                                            .featuresCheckboxGroupValues!
+                                                            .toList()
+                                                            .cast<String>();
+                                                  });
+                                                },
                                                 controller: _model
                                                         .featuresCheckboxGroupValueController ??=
                                                     FormFieldController<
@@ -480,7 +499,7 @@ class _ChooseEatingOrderPageWidgetState
                               0.0, 0.0, 0.0, 8.0),
                           child: Container(
                             width: 358.0,
-                            height: 91.0,
+                            height: 116.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -534,8 +553,13 @@ class _ChooseEatingOrderPageWidgetState
                                           .bodyMedium,
                                     ),
                                     Text(
+                                      '  ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                    Text(
                                       valueOrDefault<String>(
-                                        _model.dropDownValue,
+                                        _model.mealDropDownValue,
                                         'Döner',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -571,40 +595,36 @@ class _ChooseEatingOrderPageWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),
-                                    Text(
-                                      'Hello World',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                    Builder(
+                                      builder: (context) {
+                                        final features = (_model
+                                                    .featuresCheckboxGroupValues
+                                                    ?.toList() ??
+                                                [])
+                                            .take(5)
+                                            .toList();
+                                        return Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: List.generate(
+                                              features.length, (featuresIndex) {
+                                            final featuresItem =
+                                                features[featuresIndex];
+                                            return Text(
+                                              featuresItem,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            );
+                                          }),
+                                        );
+                                      },
                                     ),
                                   ],
                                 ),
                               ],
                             ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
-                        child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: '~ EKLE ~',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context).titleSmall,
-                            elevation: 3.0,
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(50.0),
                           ),
                         ),
                       ),
@@ -636,6 +656,181 @@ class _ChooseEatingOrderPageWidgetState
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(50.0),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
+                    child: StreamBuilder<List<OrderRecord>>(
+                      stream: queryOrderRecord(
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        List<OrderRecord> buttonOrderRecordList =
+                            snapshot.data!;
+                        // Return an empty Container when the item does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final buttonOrderRecord =
+                            buttonOrderRecordList.isNotEmpty
+                                ? buttonOrderRecordList.first
+                                : null;
+                        return FFButtonWidget(
+                          onPressed: () async {
+                            await OrderRecord.collection.doc().set({
+                              ...createOrderRecordData(
+                                tableNumber: FFAppState().tableNumber,
+                                drinkingName: _model.radioButtonValue,
+                                mealName: _model.mealDropDownValue,
+                                portionOfMeal: () {
+                                  if (_model.portionRadioButtonValue ==
+                                      '1 Prosiyon') {
+                                    return 1.0;
+                                  } else if (_model.portionRadioButtonValue ==
+                                      '1,5 Prosiyon') {
+                                    return 1.5;
+                                  } else if (_model.portionRadioButtonValue ==
+                                      '2 Prosiyon') {
+                                    return 2.0;
+                                  } else {
+                                    return 0.0;
+                                  }
+                                }(),
+                                waiterName: FFAppState().waiterName,
+                              ),
+                              ...mapToFirestore(
+                                {
+                                  'featuresOfMeal':
+                                      FFAppState().featuresListState,
+                                  'date': FieldValue.serverTimestamp(),
+                                },
+                              ),
+                            });
+                          },
+                          text: '~ EKLE ~',
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context).titleSmall,
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
+                    child: StreamBuilder<List<OrderRecord>>(
+                      stream: queryOrderRecord(
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        List<OrderRecord> buttonOrderRecordList =
+                            snapshot.data!;
+                        // Return an empty Container when the item does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final buttonOrderRecord =
+                            buttonOrderRecordList.isNotEmpty
+                                ? buttonOrderRecordList.first
+                                : null;
+                        return FFButtonWidget(
+                          onPressed: () async {
+                            await OrderRecord.collection.doc().set({
+                              ...createOrderRecordData(
+                                tableNumber: FFAppState().tableNumber,
+                                drinkingName: _model.radioButtonValue,
+                                mealName: _model.mealDropDownValue,
+                                portionOfMeal: () {
+                                  if (_model.portionRadioButtonValue ==
+                                      '1 Prosiyon') {
+                                    return 1.0;
+                                  } else if (_model.portionRadioButtonValue ==
+                                      '1,5 Prosiyon') {
+                                    return 1.5;
+                                  } else if (_model.portionRadioButtonValue ==
+                                      '2 Prosiyon') {
+                                    return 2.0;
+                                  } else {
+                                    return 0.0;
+                                  }
+                                }(),
+                                waiterName: FFAppState().waiterName,
+                                costOfThisPost: 0.0,
+                              ),
+                              ...mapToFirestore(
+                                {
+                                  'featuresOfMeal':
+                                      FFAppState().featuresListState,
+                                  'date': FieldValue.serverTimestamp(),
+                                },
+                              ),
+                            });
+                          },
+                          text: '~ EKLE ~',
+                          options: FFButtonOptions(
+                            height: 83.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context).titleSmall,
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
