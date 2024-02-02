@@ -244,56 +244,6 @@ class _ChooseEatingOrderPageWidgetState
                                     },
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 10.0),
-                                  child: StreamBuilder<List<MealsRecord>>(
-                                    stream: queryMealsRecord(
-                                      queryBuilder: (mealsRecord) =>
-                                          mealsRecord.where(
-                                        'mealName',
-                                        isEqualTo: _model.mealDropDownValue,
-                                      ),
-                                      singleRecord: true,
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<MealsRecord> textMealsRecordList =
-                                          snapshot.data!;
-                                      // Return an empty Container when the item does not exist.
-                                      if (snapshot.data!.isEmpty) {
-                                        return Container();
-                                      }
-                                      final textMealsRecord =
-                                          textMealsRecordList.isNotEmpty
-                                              ? textMealsRecordList.first
-                                              : null;
-                                      return Text(
-                                        valueOrDefault<String>(
-                                          textMealsRecord?.mealCost.toString(),
-                                          '00',
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      );
-                                    },
-                                  ),
-                                ),
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -632,10 +582,69 @@ class _ChooseEatingOrderPageWidgetState
                   ),
                 ),
                 Align(
+                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'TOPLAM TUTAR : ',
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 10.0),
+                        child: StreamBuilder<List<MealsRecord>>(
+                          stream: queryMealsRecord(
+                            queryBuilder: (mealsRecord) => mealsRecord.where(
+                              'mealName',
+                              isEqualTo: _model.mealDropDownValue,
+                            ),
+                            singleRecord: true,
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            List<MealsRecord> textMealsRecordList =
+                                snapshot.data!;
+                            // Return an empty Container when the item does not exist.
+                            if (snapshot.data!.isEmpty) {
+                              return Container();
+                            }
+                            final textMealsRecord =
+                                textMealsRecordList.isNotEmpty
+                                    ? textMealsRecordList.first
+                                    : null;
+                            return Text(
+                              valueOrDefault<String>(
+                                textMealsRecord?.mealCost.toString(),
+                                '00',
+                              ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
                   alignment: const AlignmentDirectional(0.0, 1.0),
                   child: FFButtonWidget(
                     onPressed: () {
-                      print('Button pressed ...');
+                      print('showTableButton pressed ...');
                     },
                     text: 'Masayı Gör',
                     options: FFButtonOptions(
@@ -683,15 +692,15 @@ class _ChooseEatingOrderPageWidgetState
                             ),
                           );
                         }
-                        List<OrderRecord> buttonOrderRecordList =
+                        List<OrderRecord> addButtonOrderRecordList =
                             snapshot.data!;
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();
                         }
-                        final buttonOrderRecord =
-                            buttonOrderRecordList.isNotEmpty
-                                ? buttonOrderRecordList.first
+                        final addButtonOrderRecord =
+                            addButtonOrderRecordList.isNotEmpty
+                                ? addButtonOrderRecordList.first
                                 : null;
                         return FFButtonWidget(
                           onPressed: () async {
@@ -728,94 +737,6 @@ class _ChooseEatingOrderPageWidgetState
                           text: '~ EKLE ~',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context).titleSmall,
-                            elevation: 3.0,
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(50.0),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
-                    child: StreamBuilder<List<OrderRecord>>(
-                      stream: queryOrderRecord(
-                        singleRecord: true,
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  FlutterFlowTheme.of(context).primary,
-                                ),
-                              ),
-                            ),
-                          );
-                        }
-                        List<OrderRecord> buttonOrderRecordList =
-                            snapshot.data!;
-                        // Return an empty Container when the item does not exist.
-                        if (snapshot.data!.isEmpty) {
-                          return Container();
-                        }
-                        final buttonOrderRecord =
-                            buttonOrderRecordList.isNotEmpty
-                                ? buttonOrderRecordList.first
-                                : null;
-                        return FFButtonWidget(
-                          onPressed: () async {
-                            await OrderRecord.collection.doc().set({
-                              ...createOrderRecordData(
-                                tableNumber: FFAppState().tableNumber,
-                                drinkingName: _model.radioButtonValue,
-                                mealName: _model.mealDropDownValue,
-                                portionOfMeal: () {
-                                  if (_model.portionRadioButtonValue ==
-                                      '1 Prosiyon') {
-                                    return 1.0;
-                                  } else if (_model.portionRadioButtonValue ==
-                                      '1,5 Prosiyon') {
-                                    return 1.5;
-                                  } else if (_model.portionRadioButtonValue ==
-                                      '2 Prosiyon') {
-                                    return 2.0;
-                                  } else {
-                                    return 0.0;
-                                  }
-                                }(),
-                                waiterName: FFAppState().waiterName,
-                                costOfThisPost: 0.0,
-                              ),
-                              ...mapToFirestore(
-                                {
-                                  'featuresOfMeal':
-                                      FFAppState().featuresListState,
-                                  'date': FieldValue.serverTimestamp(),
-                                },
-                              ),
-                            });
-                          },
-                          text: '~ EKLE ~',
-                          options: FFButtonOptions(
-                            height: 83.0,
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
